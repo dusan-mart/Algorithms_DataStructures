@@ -13,8 +13,10 @@ $./a.out
 ```
 
 ## Algorithms
-[MIT](https://choosealicense.com/licenses/mit/)
+[insertion sort](https://github.com/dusan-mart/algo-ds/tree/main/insertion_sort) [cpp]
 
+
+[selection sort](https://github.com/dusan-mart/algo-ds/tree/main/selection_sort) [cpp]
 ## Data structures
 [Linked list](https://github.com/dusan-mart/algo-ds/tree/main/linked_list) [cpp]
 
