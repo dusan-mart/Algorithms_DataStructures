@@ -56,7 +56,7 @@ int find_min(std::vector<int> &array, int start)
       index = i;
     }
   }
-  return ind;
+  return index;
 }
 
 

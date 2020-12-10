@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 
+#define MAX_ARRAY 25 //maximum size of array
+#define MAX_NO 200  // maximum for member value
 
 void insertion_sort(std::vector<int> &array);
 void print_array(std::vector<int> &array);
