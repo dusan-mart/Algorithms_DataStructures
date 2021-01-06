@@ -33,11 +33,12 @@ int main(){
 
 int kmp(std::string text, std::string pattern)
 {
+
   std::vector<int> lps;
   make_lps(pattern, lps);
 
-  int i = 0;
-  int j = -1;
+  int i = 0; //text counter
+  int j = -1;//pattern counter
   while(i < text.length() && (j+1) < pattern.length())
   {
     if(text[i] == pattern[j+1])
@@ -47,12 +48,16 @@ int kmp(std::string text, std::string pattern)
     }
     else
     {
+      //if no previous matches, go further in text
       if(j == -1)
         i++;
+      //look into table and set pattern counter
+      //text counter not advancing in this case
       else
         j = lps[j];
     }
   }
+  
   if((j+1) == pattern.length())
     return i - pattern.length();
   else
@@ -60,12 +65,18 @@ int kmp(std::string text, std::string pattern)
 
 }
 
-
+// search for longest proper prefix which is also suffix
+//  for "abc", proper prefixes are "" "a" "ab", and suffixes are "" "c" "bc" "abc"
 void make_lps(std::string pattern,std::vector<int> &lps)
 {
+  //we start from second element
+  //we use -1 instead of 0 for convenience
+  //beacuse of (j+1) < pattern.length() in while in kmp
   int i = 1;
   int curr_match = -1;
   lps.push_back(-1);
+
+  //go through pattern, count matches and push them into table
   while(i < pattern.length())
   {
     if(pattern[i] == pattern[curr_match+1])
@@ -74,11 +85,11 @@ void make_lps(std::string pattern,std::vector<int> &lps)
       lps.push_back(curr_match);
       i++;
     }
-    else
+    else//reset counter
     {
-        curr_match = -1;
-        lps.push_back(curr_match);
-        i++;
+      curr_match = -1;
+      lps.push_back(curr_match);
+      i++;
     }
   }
 
