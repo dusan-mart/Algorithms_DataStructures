@@ -17,20 +17,33 @@ $ ./a.out
 
 ### Path finding
 [a-star](https://github.com/dusan-mart/algo-ds/tree/main/a_star) [cpp]
+
 [BFS](https://github.com/dusan-mart/algo-ds/tree/main/BFS) [cpp]
+
 [DFS](https://github.com/dusan-mart/algo-ds/tree/main/DFS) [cpp]
+
 [Dijkstra](https://github.com/dusan-mart/algo-ds/tree/main/dijkstra)[cpp]
+
 ### Sorting
 [insertion sort](https://github.com/dusan-mart/algo-ds/tree/main/insertion_sort) [cpp]
+
 [merge sort](https://github.com/dusan-mart/algo-ds/tree/main/mergesort) [cpp]
+
 [selection sort](https://github.com/dusan-mart/algo-ds/tree/main/selection_sort) [cpp]
+
 [heap-sort](https://github.com/dusan-mart/algo-ds/tree/main/heap_sort) [cpp]
+
 [quick sort](https://github.com/dusan-mart/algo-ds/tree/main/quicksort) [cpp]
+
 ## Data structures
 [Linked list](https://github.com/dusan-mart/algo-ds/tree/main/linked_list) [cpp]
+
 [AVL-tree](https://github.com/dusan-mart/algo-ds/tree/main/avl_tree) [cpp]
+
 [Red-black-tree](https://github.com/dusan-mart/algo-ds/tree/main/red_black_tree) [cpp]
+
 [Trie](https://github.com/dusan-mart/algo-ds/tree/main/trie)[cpp]
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
