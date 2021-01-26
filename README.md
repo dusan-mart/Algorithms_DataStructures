@@ -1,6 +1,6 @@
 # Collection of algorithms and data structures
 
-Collection of algorithms and data structures implemented in C++/C.
+Collection of algorithms and data structures implemented in C++ with plans on implementing it in C and other languages.
 ## Running
 
 Every source code is compiled with  GNU c++/c compiler (g++/gcc for .c files) and warning flags. I'm using C++ 17, but code should work on C++14.
