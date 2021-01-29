@@ -15,6 +15,7 @@ $ ./a.out
 ## Algorithms
 [kmp-pattern searching](https://github.com/dusan-mart/algo-ds/tree/main/kmp) [cpp]
 
+[graham scan-convex hull](https://github.com/dusan-mart/algo-ds/tree/main/graham_scan) [cpp]
 ### Path finding
 [a-star](https://github.com/dusan-mart/algo-ds/tree/main/a_star) [cpp]
 
@@ -33,7 +34,7 @@ $ ./a.out
 
 [heap-sort](https://github.com/dusan-mart/algo-ds/tree/main/heap_sort) [cpp]
 
-[quick sort](https://github.com/dusan-mart/algo-ds/tree/main/quicksort) [cpp]
+[quick sort](https://github.com/dusan-mart/algo-ds/tree/main/quicksort) [cpp][c]
 
 ## Data structures
 [Linked list](https://github.com/dusan-mart/algo-ds/tree/main/linked_list) [cpp]
