@@ -19,7 +19,7 @@ $ ./a.out
 ### Path finding
 [a-star](https://github.com/dusan-mart/algo-ds/tree/main/a_star) [cpp]
 
-[BFS](https://github.com/dusan-mart/algo-ds/tree/main/BFS) [cpp]
+[BFS](https://github.com/dusan-mart/algo-ds/tree/main/BFS) [cpp][c]
 
 [DFS](https://github.com/dusan-mart/algo-ds/tree/main/DFS) [cpp]
 
