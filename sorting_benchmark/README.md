@@ -1,10 +1,15 @@
 # Benchmarking sorting algorithms
 Benchmarked using Google benchmark library [link](https://github.com/google/benchmark).
 Used sorts:
+
 -std::sort
+
 -quicksort custom
+
 -quicksort, with bubble sort when array<=64
+
 -quicksort, finding median for every partition && bubble sort <=64
+
 
 ```
 Run on (8 X 3600 MHz CPU s)

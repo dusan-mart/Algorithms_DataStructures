@@ -45,6 +45,8 @@ $ ./a.out
 
 [Trie](https://github.com/dusan-mart/algo-ds/tree/main/trie)[cpp]
 
+## Benchmarks
+[Sorts] (https://github.com/dusan-mart/Algorithms_DataStructures/tree/main/sorting_benchmark)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
