@@ -33,7 +33,6 @@ int main()
   a_star(0,0,9,9);
   //inside function, obstacle nodes can be defined
 
-
   return 0;
 }
 
@@ -47,12 +46,12 @@ bool a_star(int start_x, int start_y, int end_x, int end_y)
   grid = new node[grid_width * grid_height];
   for (int i = 0; i < grid_width; ++i)
     for (int j = 0; j < grid_height; ++j)
-  	{
-  		grid[j * grid_width + i].x = i;
+    {
+      grid[j * grid_width + i].x = i;
       grid[j * grid_width + i].y = j;
-  		grid[j * grid_width + i].obstacle = false;
-  		grid[j * grid_width + i].parent = nullptr;
-  		grid[j * grid_width + i].visited = false;
+      grid[j * grid_width + i].obstacle = false;
+      grid[j * grid_width + i].parent = nullptr;
+      grid[j * grid_width + i].visited = false;
   	}
 
   //connexting nodes in grid, making adjacencies
@@ -66,9 +65,9 @@ bool a_star(int start_x, int start_y, int end_x, int end_y)
       if(j < (grid_height-1))
         grid[j * grid_width + i].adj.push_back(&grid[(j + 1) * grid_width + (i + 0)]);
       if(i > 0)
-      	grid[j * grid_width + i].adj.push_back(&grid[(j + 0) * grid_width + (i - 1)]);
+        grid[j * grid_width + i].adj.push_back(&grid[(j + 0) * grid_width + (i - 1)]);
       if(i < (grid_width-1))
-      	grid[j * grid_width + i].adj.push_back(&grid[(j + 0) * grid_width + (i + 1)]);
+        grid[j * grid_width + i].adj.push_back(&grid[(j + 0) * grid_width + (i + 1)]);
     }
 
   for (int i = 0; i < grid_width; ++i)
@@ -76,8 +75,8 @@ bool a_star(int start_x, int start_y, int end_x, int end_y)
     {
       grid[j * grid_width + i].visited = false;
       grid[j * grid_width + i].total_path = std::numeric_limits<double>::max();
-    	grid[j * grid_width + i].current_min_path = std::numeric_limits<int>::max();
-    	grid[j * grid_width + i].parent = nullptr;	// No parents
+      grid[j * grid_width + i].current_min_path = std::numeric_limits<int>::max();
+      grid[j * grid_width + i].parent = nullptr;	// No parents
     }
   //DEFINING OBSTACLES
   //ex: (5,5)
@@ -105,53 +104,51 @@ bool a_star(int start_x, int start_y, int end_x, int end_y)
 
   while (!not_visited.empty() && current != node_end)
   {
+    // we sort all not visited nodes by total path value
+		not_visited.sort([](const node* lhs, const node* rhs){ return lhs->total_path < rhs->total_path; } );
 
-      // we sort all not visited nodes by total path value
-			not_visited.sort([](const node* lhs, const node* rhs){ return lhs->total_path < rhs->total_path; } );
+    // disregard if node is already visited
+    while(!not_visited.empty() && not_visited.front()->visited)
+			not_visited.pop_front();
 
-      // disregard if node is already visited
-      while(!not_visited.empty() && not_visited.front()->visited)
-				not_visited.pop_front();
+		if (not_visited.empty())
+		  break;
 
-			if (not_visited.empty())
-				break;
+		current = not_visited.front();
+		current->visited = true;
 
-			current = not_visited.front();
-			current->visited = true;
-
-			// check each of this node's neighbours
-			for (auto neighbour : current->adj)
-			{
-
-				if (!neighbour->visited && !neighbour->obstacle)
-					not_visited.push_back(neighbour);
-
-				double tmp_distance = current->current_min_path + heuristic(current, neighbour);
-
-
-				if (tmp_distance < neighbour->current_min_path)
-				{
-					neighbour->parent = current;
-					neighbour->current_min_path = tmp_distance;
-
-					neighbour->total_path = neighbour->current_min_path + heuristic(neighbour, node_end);
-				}
-			}
-		}
-    //printing path
-    //going backwards and checking parent nodes
-    std::cout << "-----finish-----" << '\n';
-    if (node_end != nullptr)
+		// check each of this node's neighbours
+		for (auto neighbour : current->adj)
 		{
-			node *p = node_end;
-			while (p->parent != nullptr)
-			{
-        std::cout << p->x << "__" << p->y << '\n';
-        p = p->parent;
-			}
-      std::cout << p->x << "__" << p->y << '\n';
-		}
-    std::cout << "-----start-----" << '\n';
-		return true;
+      if (!neighbour->visited && !neighbour->obstacle)
+		    not_visited.push_back(neighbour);
 
+      double tmp_distance = current->current_min_path + heuristic(current, neighbour);
+
+
+			if (tmp_distance < neighbour->current_min_path)
+			{
+        neighbour->parent = current;
+				neighbour->current_min_path = tmp_distance;
+
+				neighbour->total_path = neighbour->current_min_path + heuristic(neighbour, node_end);
+			}
+		}
+	}
+  //printing path
+  //going backwards and checking parent nodes
+  std::cout << "-----finish-----" << '\n';
+  if (node_end != nullptr)
+	{
+    node *p = node_end;
+		while (p->parent != nullptr)
+		{
+      std::cout << p->x << "__" << p->y << '\n';
+      p = p->parent;
+		}
+    std::cout << p->x << "__" << p->y << '\n';
+	}
+  std::cout << "-----start-----" << '\n';
+
+  return true;
 }
